@@ -3,27 +3,43 @@ let slide = []
 let interval;
 
 images.forEach(element => {
-    let pic1 = new Image(300, 300)
-    pic1.src = element
-    pic1.classList.add("image")
-    document.querySelector('#slider').appendChild(pic1)
-    slide.push(pic1)
+    let pic = new Image(300, 300)
+    pic.src = element
+    pic.classList.add("image")
+    document.querySelector('#slider').appendChild(pic)
+    slide.push(pic)
 });
 
 function startSlider() {
     let i = 0
 
     interval = setInterval(() => {
-        slide.forEach(element => {
-            element.classList.remove("animation")
-        });
-        slide[i].classList.add("animation")
-        console.log("in")
-        i++
-        if (i == slide.length) {
+        for (let index = 0; index < slide.length; index++) {
+            if (i == index) {
+                slide[i].style.visibility = 'visible'
+                if (i != slide.length - 1) {
+                    slide[i + 1].style.visibility = 'visible'
+                }
+            }
+            else {
+                slide[index].style.visibility = 'hidden'
+                if (i != slide.length - 1) {
+                    slide[i + 1].style.visibility = 'visible'
+                }
+            }
+        }
+        if (i != 0) {
+            slide[i - 1].style.visibility = 'hidden'
+        }
+        if (i === slide.length - 1) {
+            slide.forEach(element => {
+                element.classList.remove("animation")
+            });
             i = 0
         }
-    }, 2500);
+        slide[i].classList.add("animation")
+        i++
+    }, 2200);
 }
 
 function stopSlider() {

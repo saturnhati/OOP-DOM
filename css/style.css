@@ -14,13 +14,19 @@ body {
     width: 300px;
     height: 300px;
     margin: 0;
+    transform-style: preserve-3d;
 }
 
 .image {
     position: absolute;
+    transform-style: preserve-3d;
+    /* visibility: hidden; */
 }
 
 .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100px;
     width: 100%;
 }
@@ -34,7 +40,7 @@ body {
 .fa-solid:hover {
     font-size: 3rem;
     padding: 0 8px;
-    font-size: 3.3rem;
+    transform: scale(1.1);
     color: red;
 }
 
@@ -44,25 +50,20 @@ body {
 
 @keyframes flip {
     0% {
-        transform: scale(1) translateX(0);
-        z-index: 2;
+        transform: translateX(0) translateZ(0);
     }
     40% {
-        transform: scale(1.1) translateX(0);
+        transform: scale(1.1) translateX(0) translateZ(100px);
         box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, .3);
-        z-index: 2;
     }
     65% {
-        transform: scale(1) translateX(320px);
+        transform: scale(1) translateX(320px) translateZ(100px);
         box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, .3);
-        z-index: 2;
     }
     75% {
-        transform: scale(1) translateX(320px);
-        z-index: 0;
+        transform: translateX(320px) translateZ(-10px);
     }
     100% {
-        transform: scale(1) translateX(0);
-        z-index: 0;
+        transform: translateX(0) translateZ(0);
     }
 }

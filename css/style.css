@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    height: 300px;
+    width: 80%;
+    margin: 40px auto;
+}
+
+#slider {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0;
+}
+
+.image {
+    position: absolute;
+}
+
+.icons {
+    height: 100px;
+    width: 100%;
+}
+
+.fa-solid {
+    font-size: 3rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.fa-solid:hover {
+    font-size: 3rem;
+    padding: 0 8px;
+    font-size: 3.3rem;
+    color: red;
+}
+
+.animation {
+    animation: flip 2s ease-in-out;
+}
+
+@keyframes flip {
+    0% {
+        transform: scale(1) translateX(0);
+        z-index: 2;
+    }
+    40% {
+        transform: scale(1.1) translateX(0);
+        box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, .3);
+        z-index: 2;
+    }
+    65% {
+        transform: scale(1) translateX(320px);
+        box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, .3);
+        z-index: 2;
+    }
+    75% {
+        transform: scale(1) translateX(320px);
+        z-index: 0;
+    }
+    100% {
+        transform: scale(1) translateX(0);
+        z-index: 0;
+    }
+}
